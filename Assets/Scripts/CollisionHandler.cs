@@ -2,15 +2,27 @@ using UnityEngine;
 
 public class CollisionHandler : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    void OnCollisionEnter(Collision collision)
     {
-        
+        switch (collision.gameObject.tag)
+        {
+            case "Friendly":
+                Debug.Log("Hi");
+                break;
+
+            case "Finish":
+                Debug.Log("Welcome");
+                break;
+
+            case "Fuel":
+                Debug.Log("Why did you pick me up");
+                break;
+
+            default:
+                Debug.Log("You crashed");
+                break;
+
+        }
     }
 }
