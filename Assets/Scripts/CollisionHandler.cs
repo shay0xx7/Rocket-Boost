@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
@@ -20,9 +21,17 @@ public class CollisionHandler : MonoBehaviour
                 break;
 
             default:
-                Debug.Log("You crashed");
+                reloadLevel();
                 break;
 
         }
+
+        void reloadLevel()
+        {   
+                int currentScene = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(currentScene);
+        }
     }
+
+    
 }
