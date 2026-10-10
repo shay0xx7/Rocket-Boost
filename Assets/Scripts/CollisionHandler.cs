@@ -1,9 +1,12 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
 
+    [SerializeField] float levelLoadDelay = 2f;
     void OnCollisionEnter(Collision collision)
     {
         switch (collision.gameObject.tag)
@@ -13,37 +16,48 @@ public class CollisionHandler : MonoBehaviour
                 break;
 
             case "Finish":
-                LoadNextlevel();
+                StartSuccessSequence();
                 break;
-
-            
 
             default:
-                reloadLevel();
+                StartCrashSequence();
                 break;
 
         }
-        
-        void LoadNextlevel()
+    }
+    void LoadNextlevel()
+    {
+        int currentScene = SceneManager.GetActiveScene().buildIndex; //Get a refrence to the current active scene
+        int nextSceneIndex = currentScene +1;   // increasing the index of our current scene
+
+        if (nextSceneIndex == SceneManager.sceneCountInBuildSettings) // cheking the number of our total scenes
         {
-            int currentScene = SceneManager.GetActiveScene().buildIndex; //Get a refrence to the current active scene
-            int nextSceneIndex = currentScene +1;   // increasing the index of our current scene
-
-            if (nextSceneIndex == SceneManager.sceneCountInBuildSettings) // cheking the number of our total scenes
-            {
-                nextSceneIndex = 0; //then make it to Zero
-            }
-
-            SceneManager.LoadScene(nextSceneIndex);
+            nextSceneIndex = 0; //then make it to Zero
         }
 
-        //Loading The current Level
-        void reloadLevel()
-        {   
-            int currentScene = SceneManager.GetActiveScene().buildIndex; 
-            SceneManager.LoadScene(currentScene);
-        }
+        SceneManager.LoadScene(nextSceneIndex);
     }
 
+
+    //Loading The current Level
+    void reloadLevel()
+    {   
+        int currentScene = SceneManager.GetActiveScene().buildIndex; 
+        SceneManager.LoadScene(currentScene);
+    }
+    
+    
+    void StartSuccessSequence()
+    {   
+        GetComponent<PlayerMovement>().enabled = false;
+        Invoke("LoadNextlevel",levelLoadDelay); //adding a delay    
+    }
+
+
+    void StartCrashSequence()
+    {   
+        GetComponent<PlayerMovement>().enabled = false;
+        Invoke("reloadLevel",levelLoadDelay);
+    }
     
 }
