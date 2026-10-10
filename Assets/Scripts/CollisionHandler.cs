@@ -26,10 +26,11 @@ public class CollisionHandler : MonoBehaviour
 
         }
 
+        //Loading The current Level
         void reloadLevel()
         {   
-                int currentScene = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(currentScene);
+            int currentScene = SceneManager.GetActiveScene().buildIndex; //Get a refrence to the current active scene
+            SceneManager.LoadScene(currentScene); //loading the current scene
         }
     }
 
