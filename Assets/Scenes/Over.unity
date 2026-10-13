@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 6754d2afbcf93984d9100671a5287a91, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -268,7 +268,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.121354826, y: 0.049353994, z: -0.0060501415, w: 0.991363}
-  m_LocalPosition: {x: -15.94, y: 3.8200002, z: -8.91}
+  m_LocalPosition: {x: -15.94, y: 3.8300002, z: -8.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -811,7 +811,7 @@ Transform:
   m_GameObject: {fileID: 1795323225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.121354826, y: 0.049353994, z: -0.0060501415, w: 0.991363}
-  m_LocalPosition: {x: -15.94, y: 3.8200002, z: -8.91}
+  m_LocalPosition: {x: -15.94, y: 3.8300002, z: -8.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -844,6 +844,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3197513105926188002, guid: 1d0a0fcdcdda1134bb65e1adc1a85f4a, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3197513105926188002, guid: 1d0a0fcdcdda1134bb65e1adc1a85f4a, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 3375216782023837399, guid: 1d0a0fcdcdda1134bb65e1adc1a85f4a, type: 3}
       propertyPath: m_Name
       value: Player Rocket
@@ -854,7 +862,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5806712776355585182, guid: 1d0a0fcdcdda1134bb65e1adc1a85f4a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.38
+      value: 2.39
       objectReference: {fileID: 0}
     - target: {fileID: 5806712776355585182, guid: 1d0a0fcdcdda1134bb65e1adc1a85f4a, type: 3}
       propertyPath: m_LocalPosition.z
