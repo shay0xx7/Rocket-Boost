@@ -11,13 +11,17 @@ public class Osclatter : MonoBehaviour
     float movementFactor;
 
     void Start()
-    {
+    {   
+        //determaine the start and end position of the moving object
         startPosition = transform.position;
+
+        //
         endPosition = startPosition + movementVector;
     }
 
     void Update()
     {   
+        
         movementFactor= Mathf.PingPong(Time.time * speed,1f);
         transform.position = Vector3.Lerp(startPosition,endPosition,movementFactor);
     }
